@@ -9,7 +9,7 @@ import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 /**
  * Create a IconToggleButton with ImageIcon
- * @author <110017972>
+
  *
  */
 public class IconToggleButton extends JToggleButton {
