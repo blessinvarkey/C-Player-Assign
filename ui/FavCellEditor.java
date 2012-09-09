@@ -10,7 +10,6 @@ import javax.swing.table.TableCellEditor;
 
 /**
  * Class that accept the actions for the adding and removing from favorite play list 
- * @author <110016203>
  *
  */
 public class FavCellEditor extends AbstractCellEditor implements TableCellEditor, ActionListener {
