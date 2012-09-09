@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/g1-cs5031-cw3/!svn/ver/48/trunk/src/cs5031/catalogplayer/catalog/exist
+END
+Utils.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/g1-cs5031-cw3/!svn/ver/47/trunk/src/cs5031/catalogplayer/catalog/exist/Utils.java
+END
+ExistResultElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/g1-cs5031-cw3/!svn/ver/47/trunk/src/cs5031/catalogplayer/catalog/exist/ExistResultElement.java
+END
+GetUriBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/g1-cs5031-cw3/!svn/ver/47/trunk/src/cs5031/catalogplayer/catalog/exist/GetUriBuilder.java
+END
+ExceptionElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/g1-cs5031-cw3/!svn/ver/41/trunk/src/cs5031/catalogplayer/catalog/exist/ExceptionElement.java
+END
+ExistException.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/g1-cs5031-cw3/!svn/ver/2/trunk/src/cs5031/catalogplayer/catalog/exist/ExistException.java
+END
+ExistGetURI.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/g1-cs5031-cw3/!svn/ver/47/trunk/src/cs5031/catalogplayer/catalog/exist/ExistGetURI.java
+END
+ExistAlbum.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/g1-cs5031-cw3/!svn/ver/44/trunk/src/cs5031/catalogplayer/catalog/exist/ExistAlbum.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/g1-cs5031-cw3/!svn/ver/2/trunk/src/cs5031/catalogplayer/catalog/exist/package.html
+END
+ExistTrack.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/g1-cs5031-cw3/!svn/ver/38/trunk/src/cs5031/catalogplayer/catalog/exist/ExistTrack.java
+END
+ExistSearchResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/g1-cs5031-cw3/!svn/ver/48/trunk/src/cs5031/catalogplayer/catalog/exist/ExistSearchResult.java
+END
+ExistResourceLink.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/g1-cs5031-cw3/!svn/ver/2/trunk/src/cs5031/catalogplayer/catalog/exist/ExistResourceLink.java
+END
+ExistQuery.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/g1-cs5031-cw3/!svn/ver/2/trunk/src/cs5031/catalogplayer/catalog/exist/ExistQuery.java
+END
+DocumentBuilderWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/g1-cs5031-cw3/!svn/ver/47/trunk/src/cs5031/catalogplayer/catalog/exist/DocumentBuilderWrapper.java
+END
+UtilityMethods.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/g1-cs5031-cw3/!svn/ver/47/trunk/src/cs5031/catalogplayer/catalog/exist/UtilityMethods.java
+END
+ExistCatalog.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/g1-cs5031-cw3/!svn/ver/47/trunk/src/cs5031/catalogplayer/catalog/exist/ExistCatalog.java
+END
+ResultElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/g1-cs5031-cw3/!svn/ver/47/trunk/src/cs5031/catalogplayer/catalog/exist/ResultElement.java
+END
+DefaultDocumentBuilderWrapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/g1-cs5031-cw3/!svn/ver/47/trunk/src/cs5031/catalogplayer/catalog/exist/DefaultDocumentBuilderWrapper.java
+END
+DefaultUtilityMethods.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/g1-cs5031-cw3/!svn/ver/47/trunk/src/cs5031/catalogplayer/catalog/exist/DefaultUtilityMethods.java
+END

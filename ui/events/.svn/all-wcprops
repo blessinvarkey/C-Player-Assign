@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/g1-cs5031-cw3/!svn/ver/49/trunk/src/cs5031/catalogplayer/ui/events
+END
+TrackSelectedEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/g1-cs5031-cw3/!svn/ver/49/trunk/src/cs5031/catalogplayer/ui/events/TrackSelectedEvent.java
+END
+PlayTrackListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/g1-cs5031-cw3/!svn/ver/49/trunk/src/cs5031/catalogplayer/ui/events/PlayTrackListener.java
+END
+TrackSelectedListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/g1-cs5031-cw3/!svn/ver/49/trunk/src/cs5031/catalogplayer/ui/events/TrackSelectedListener.java
+END
+PlayTrackSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/g1-cs5031-cw3/!svn/ver/49/trunk/src/cs5031/catalogplayer/ui/events/PlayTrackSource.java
+END
+PlayTrackEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/g1-cs5031-cw3/!svn/ver/49/trunk/src/cs5031/catalogplayer/ui/events/PlayTrackEvent.java
+END
+TrackSelectedSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/g1-cs5031-cw3/!svn/ver/49/trunk/src/cs5031/catalogplayer/ui/events/TrackSelectedSource.java
+END

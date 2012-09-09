@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/g1-cs5031-cw3/!svn/ver/9/trunk/src/cs5031/catalogplayer/player/playListItems
+END
+PlayListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/g1-cs5031-cw3/!svn/ver/7/trunk/src/cs5031/catalogplayer/player/playListItems/PlayListItem.java
+END
+UI4PlayListItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/g1-cs5031-cw3/!svn/ver/9/trunk/src/cs5031/catalogplayer/player/playListItems/UI4PlayListItem.java
+END
+TrackItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/g1-cs5031-cw3/!svn/ver/7/trunk/src/cs5031/catalogplayer/player/playListItems/TrackItem.java
+END
+FavItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/g1-cs5031-cw3/!svn/ver/7/trunk/src/cs5031/catalogplayer/player/playListItems/FavItem.java
+END

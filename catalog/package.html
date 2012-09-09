@@ -1,0 +1,57 @@
+<html>
+<head></head>
+<body>
+
+<p>API for browsing through catalogues of music</p>
+
+<p>
+	The {@code catalog} package defines an API for iteractng with a 
+set of {@link cs5031.catalogplayer.catalog.Album}-s and
+{@link cs5031.catalogplayer.catalog.Track}-s.
+</p>
+
+<p>
+The package contains a {@link cs5031.catalogplayer.catalog.CatalogFactory}, where implementations of
+{@link cs5031.catalogplayer.catalog.Catalog} can be registered and resolved (via
+{@link cs5031.catalogplayer.catalog.CatalogFactory#registerImplementation(String, Class)}
+and {@link cs5031.catalogplayer.catalog.CatalogFactory#getCatalog(String)}, respectively).
+</p>
+
+<p>
+	Here follows an example of how to use the Catalogue API:
+</p>
+<pre>
+import cs5031.catalogplayer.catalog.*;
+import cs5031.catalogplayer.catalog.exist.ExistQuery;
+
+...
+
+// first, an implementation is retrieved
+{@link cs5031.catalogplayer.catalog.Catalog} catalog = {@link cs5031.catalogplayer.catalog.CatalogFactory}.getCatalog("name_of_my_implementation");
+// construct query that searches for albums with title that contains the literal "picture",
+// with a maximum number of items per page equal to 1
+{@link cs5031.catalogplayer.catalog.Query} query = new {@link cs5031.catalogplayer.catalog.exist.ExistQuery}("//album[contains(title,\"Picture\"", 1, 1);
+// the result looks a lot like {@link java.util.Iterator} - the difference is that the result
+// can move backwards and one cannot remove elements from the result
+{@link cs5031.catalogplayer.catalog.SearchResult} result = catalog.search(query);
+
+// iterate through the collection of results, just a one would iterate through an iterable:
+while (result.hasNextPage()) {
+    result.getNextPage();
+    // iterate through the results in the current page with getResources()
+    for ({@link cs5031.catalogplayer.catalog.Resource} resource: result.getResources()) {
+        System.out.println(resource);
+        // Resource defines the TYPE_ALBUM, TYPE_TRACK and TYPE_UNKNOWN codes
+        if (resource.getType() == Resource.TYPE_ALBUM &amp;&amp; resource instanceof Album) {
+            // An Album contains an ordered collection of tracks. They can be retrieved via the getTracks() method
+            {@link cs5031.catalogplayer.catalog.Album} album = (Album) resource;
+            for ({@link cs5031.catalogplayer.catalog.Track} track: album.getTracks()) {
+                System.out.println("\t" + track);
+            }
+        }
+    }			
+}
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<html>
+<head></head>
+<body>
+
+<p>{@code cs5031.catalogplayer.catalog} implementation with eXist</p>
+
+<p>This package connects to a remote server, 
+<a href="http://138.251.198.119:8080/exist/rest/db/catalog">http://138.251.198.119:8080/exist/rest/db/catalog</a>,
+which exposes a database of albums and tracks</p>
+
+<p>The database is exposed by the <a href="http://exist.sf.net">eXist</a> 
+<a href="http://exist.sourceforge.net/devguide_rest.html#d1915e379">REST-ful API</a>. There are few important query string parameters:
+</p>
+<dl>
+	<dt>_query</dt>
+	<dd>
+		<a href="http://www.w3schools.com/xquery/default.asp">xQuery</a>/<a href="http://www.w3schools.com/xpath/default.asp">xPath</a>.		
+	</dd>
+	<dt>_howmany</dt>
+	<dd>Maximum number of items per page</dd>
+	<dt>_start</dt>
+	<dd>
+		Equvalent to the <a href="http://msdn.microsoft.com/en-us/library/bb738680.aspx">SKIP</a> SQL statement. 
+		It is important to note that eXist counts from 1, not zero.
+	</dd>
+</dl>
+
+<p>
+	The generation of an url-escaped HTTP GET request URI is handled by
+	{@link cs5031.catalogplayer.catalog.exist.ExistGetURI}, which uses 
+	<a href="http://en.wikipedia.org/wiki/Method_chaining">method chaining</a>.
+	Here is an example of how to use <code>ExistGetURI</code>:
+</p>
+<pre>
+	URI uri = 
+			new ExistGetURI()
+			.setQuery(this.query)
+			.setPaging(this.pageSize, this.currentPage)
+			.build();
+</pre>
+
+<p>Returned items by query are wrapped in an <code>&lt;exist:result&gt;</code> elements:</p>
+<pre>
+	&lt;exist:result xmlns:exist="http://exist.sourceforge.net/NS/exist" exist:hits="3" exist:start="1" exist:count="3"&gt;
+	&lt;!-- actual items, such as &lt;album&gt;...&lt;/album&gt; or &lt;track&gt;&lt;/track&gt; --&gt;
+	&lt;/exist:result&gt;
+</pre>
+<p>It is important to note that the meaning of the attributes:</p>
+<dl>
+	<dt><code>exist:hits</code></dt>
+	<dd>Total number of elements that are true for the query specified in <code>_query</code></dd>
+	<dt><code>exist:start</code></dt>
+	<dd>Equivalent to the query string parameter <code>_start</code></dd>
+	<dt><code>exist:count</code></dt>
+	<dd>Number of items return <em>in this page</em>. This number can be less than <code>_howmany</code></dd>
+</dl>	
+
+<p>That element XML is parsed by {@link cs5031.catalogplayer.catalog.exist.ExistResultElement}, and handled by
+{@link cs5031.catalogplayer.catalog.exist.ExistSearchResult}.</p>
+
+<p>
+	The role of {@link cs5031.catalogplayer.catalog.exist.ExistCatalog} is to construct a 
+	{@link cs5031.catalogplayer.catalog.exist.ExistSearchResult}. The catalog also creates a
+	{@link javax.xml.parsers.DocumentBuilder}, which is shared by all <code>SearchResult</code>-s.
+</p>
+
+<p>
+	<code>ExistSearchResult</code> does not immediately execute a request to the server. It implements
+	<a href="http://en.wikipedia.org/wiki/Lazy_evaluation">lazy evaluation</a> - that is, requests are sent and parsed
+	only when the data is needed. Methods that need to operate on data sent by the server make certain that 
+	the data is fetched and parsed before they start (such as <code>getResources</code>). 
+	In essence, the <em><code>ExistSearchResult</code> class represents a page of results</em>.
+</p>
+
+<p>
+	Items returned by <code>ExistSearchResult</code> can be 
+	{@link cs5031.catalogplayer.catalog.exist.ExistAlbum}, {@link cs5031.catalogplayer.catalog.exist.ExistTrack},
+	or {@link cs5031.catalogplayer.catalog.exist.ExistResourceLink}. It is important to note that
+	urls returned by <code>ExstTrack</code> will not be accurate if they are not retrieved as a part of an
+	<code>ExistAlbum</code>, because the server does not provide enough information to construct a proper download URL.
+	<code>ExistResourceLink</code>-s' URLs are always null, because the server doesn't provide enough informatin to construct
+	a proper URL, and the {@link java.net.URL} class does not support relative URLs.
+</p>
+
+<p>
+	eXist reports errors by using the HTTP Response's status code and stats line's reason if the constructed URL is not correct.
+	If there is an error in the <code>_query</code> - that is, xQuery/xPath syntax error - the server will return an xml that
+	looks like this:
+</p>
+
+<pre>
+	&lt;?xml version="1.0" ?&gt;
+	&lt;exception&gt;
+		&lt;path&gt;/db/catalog/&lt;/path&gt;
+		&lt;message&gt;
+			org.exist.xquery.XPathException: err:XPST0003 in line 1, column 21: unexpected token: count
+		&lt;/message&gt;
+		&lt;query&gt;for $c in // return count($c)&lt;/query&gt;
+	&lt;/exception&gt;
+</pre>
+
+<p>
+	That element is parsed by {@link cs5031.catalogplayer.catalog.exist.ExceptionElement}. All logical exceptions are repored
+	by throwing an {@link cs5031.catalogplayer.catalog.exist.ExistException}, regardless of their origin (status code + reason,
+	or exception XML). 
+</p>
+
+<p>
+	General errors, such as invalid arguments, are reported by standard Java exceptions, such as
+	{@link java.util.NoSuchElementException} and {@link java.lang.IllegalArgumentException}. The use of those exceptions is usually
+	documented in the constructor/method JavaDoc comment. All thrown exceptions inherit RuntimeException, because
+	the API specification doesn't have exceptions in the method signatures.
+</p>
+
+</body>
+</html>
