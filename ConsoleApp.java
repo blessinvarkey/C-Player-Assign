@@ -12,7 +12,7 @@ import cs5031.catalogplayer.catalog.exist.ExistQuery;
 
 /**
  * Console interface for the application
- * @author <110017972>
+ * @author 
  *
  */
 public class ConsoleApp {
