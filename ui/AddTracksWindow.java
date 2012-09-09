@@ -35,7 +35,6 @@ import cs5031.catalogplayer.catalog.Track;
  * The JDialog window show the tracks which get from the web service, 
  * can search the tracks by tile and album 
  * and return the selected tracks 
- * @author  <110017972>
  *
  */
 public class AddTracksWindow extends JDialog implements ActionListener, KeyListener {
